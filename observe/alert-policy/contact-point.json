@@ -1,10 +1,10 @@
 {
-    "uid": "cohort-team##-201-contact",
-    "name": "Cohort Team##-201",
-    "type": "email",
-    "settings": {
-        "addresses": "email1@myteam.com; email2@myteam.com",
-        "singleEmail": false
-    },
-    "disableResolveMessage": false
+  "uid": "cohort-team1-201-contact",
+  "name": "Cohort Team1-201",
+  "type": "email",
+  "settings": {
+    "addresses": "mark.sinclair@thoughtworks.com; owen.nelson@thoughtworks.com",
+    "singleEmail": false
+  },
+  "disableResolveMessage": false
 }

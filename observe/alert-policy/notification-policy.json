@@ -1,8 +1,4 @@
 {
-    "group_by": [
-        "alertname",
-        "cluster",
-        "env"
-    ],
-    "receiver": "Cohort Team##-201"
+  "group_by": ["alertname", "cluster", "env"],
+  "receiver": "Cohort Team1-201"
 }
