@@ -1,5 +1,4 @@
 {
-  "dashboard": {
     "annotations": {
       "list": [
         {
@@ -19,9 +18,9 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
+    "id": 13,
     "links": [],
     "liveNow": false,
-    "uid": "pe-cluster-monitoring",
     "panels": [
       {
         "collapsed": false,
@@ -34,6 +33,30 @@
         "id": 6,
         "panels": [],
         "title": "Core-Services",
+        "type": "row"
+      },
+      {
+        "collapsed": false,
+        "datasource": {
+          "uid": "$datasource"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 1
+        },
+        "id": 14,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "uid": "$datasource"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "Overview",
         "type": "row"
       },
       {
@@ -96,9 +119,9 @@
         },
         "gridPos": {
           "h": 10,
-          "w": 11,
+          "w": 12,
           "x": 0,
-          "y": 1
+          "y": 2
         },
         "id": 1,
         "options": {
@@ -183,12 +206,124 @@
         "type": "timeseries"
       },
       {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "c2b204b5-6dc0-4777-9326-ba8b82bc93c1"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 12,
+          "y": 2
+        },
+        "hiddenSeries": false,
+        "id": 15,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": false,
+          "max": false,
+          "min": false,
+          "rightSide": true,
+          "show": true,
+          "sort": "avg",
+          "sortDesc": true,
+          "total": false,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "connected",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.0.3-cloud.2.14737d80",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "c2b204b5-6dc0-4777-9326-ba8b82bc93c1"
+            },
+            "dimensions": {
+              "InstanceId": "*"
+            },
+            "expression": "",
+            "id": "",
+            "label": "",
+            "logGroups": [],
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "CPUUtilization",
+            "metricQueryType": 0,
+            "namespace": "AWS/EC2",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "EC2 CPU Utilization per instance (Average%)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "percent",
+            "label": "",
+            "logBase": 1,
+            "max": "100",
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
         "collapsed": false,
         "gridPos": {
           "h": 1,
           "w": 24,
           "x": 0,
-          "y": 11
+          "y": 12
         },
         "id": 5,
         "panels": [],
@@ -256,7 +391,7 @@
           "h": 8,
           "w": 12,
           "x": 0,
-          "y": 12
+          "y": 13
         },
         "id": 2,
         "options": {
@@ -356,7 +491,7 @@
           "h": 8,
           "w": 12,
           "x": 12,
-          "y": 12
+          "y": 13
         },
         "id": 3,
         "options": {
@@ -456,7 +591,7 @@
           "h": 8,
           "w": 12,
           "x": 0,
-          "y": 20
+          "y": 21
         },
         "id": 4,
         "options": {
@@ -513,10 +648,7 @@
     "timepicker": {},
     "timezone": "",
     "title": "Cohort platform-core-services Alerts",
-    "id": null,
+    "uid": "pe-cluster-monitoring",
     "version": 8,
     "weekStart": ""
-  },
-  "folderUid": "pe-folder",
-  "overwrite": true
-}
+  }
