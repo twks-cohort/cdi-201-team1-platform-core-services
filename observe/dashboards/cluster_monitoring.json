@@ -144,6 +144,111 @@
       },
       {
         "datasource": {
+          "type": "cloudwatch",
+          "uid": "c2b204b5-6dc0-4777-9326-ba8b82bc93c1"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 11
+        },
+        "id": 8,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "c2b204b5-6dc0-4777-9326-ba8b82bc93c1"
+            },
+            "dimensions": {
+              "InstanceId": "*"
+            },
+            "expression": "",
+            "id": "",
+            "label": "",
+            "logGroups": [],
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "NetworkIn",
+            "metricQueryType": 0,
+            "namespace": "AWS/EC2",
+            "period": "300",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "title": "EC2 Inbound network traffic per instance (bytes/sec, period 300)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
           "type": "prometheus",
           "uid": "pe-prometheus-datasource"
         },
