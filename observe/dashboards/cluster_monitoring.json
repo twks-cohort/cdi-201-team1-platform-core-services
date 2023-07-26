@@ -38,6 +38,475 @@
       },
       {
         "datasource": {
+          "type": "prometheus",
+          "uid": "pe-prometheus-datasource"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "dashed"
+              }
+            },
+            "mappings": [],
+            "max": 50,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 10
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 0,
+          "y": 1
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": [
+              "min",
+              "max",
+              "sum",
+              "mean"
+            ],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "expr": "sum(kube_pod_container_status_restarts_total{app_kubernetes_io_name=\"kube-state-metrics\"})",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "expr": "sum(kube_pod_container_status_restarts_total{container=\"metrics-server\"})",
+            "hide": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "expr": "sum(kube_pod_container_status_restarts_total{container=\"grafana-agent-logs\"})",
+            "hide": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "C"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "expr": "sum(kube_pod_container_status_restarts_total{container=\"grafana-agent-traces\"})",
+            "hide": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "D"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "expr": "sum(kube_pod_container_status_restarts_total{container=\"prometheus-server\"})",
+            "hide": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "E"
+          }
+        ],
+        "title": "core-services pod restarts",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "pe-prometheus-datasource"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 12,
+          "y": 1
+        },
+        "id": 3,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "expr": "sum(kube_pod_container_status_running{container=\"grafana-agent-logs\"})",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "hide": false,
+            "refId": "B"
+          }
+        ],
+        "title": "Grafana Log Agent Instances Running",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "pe-prometheus-datasource"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "rgba(50, 172, 45, 0.97)"
+                },
+                {
+                  "color": "rgba(237, 129, 40, 0.89)",
+                  "value": 65
+                },
+                {
+                  "color": "rgba(245, 54, 54, 0.9)",
+                  "value": 90
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 12,
+          "x": 0,
+          "y": 11
+        },
+        "id": 9,
+        "links": [],
+        "maxDataPoints": 100,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "10.0.3-cloud.2.14737d80",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "exemplar": false,
+            "expr": "sum by(instance) (instance:node_cpu:rate:sum) * 100 / 8\n",
+            "hide": false,
+            "instant": false,
+            "interval": "10s",
+            "intervalFactor": 1,
+            "range": true,
+            "refId": "A",
+            "step": 10
+          }
+        ],
+        "title": "Kubernetes Node CPU Usage by Instance",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "pe-prometheus-datasource"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "rgba(50, 172, 45, 0.97)"
+                },
+                {
+                  "color": "rgba(237, 129, 40, 0.89)",
+                  "value": 65
+                },
+                {
+                  "color": "rgba(245, 54, 54, 0.9)",
+                  "value": 90
+                }
+              ]
+            },
+            "unit": "Bps"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 12,
+          "x": 12,
+          "y": 11
+        },
+        "id": 10,
+        "links": [],
+        "maxDataPoints": 100,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "10.0.3-cloud.4.aed62623",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "editorMode": "builder",
+            "expr": "instance:node_network_receive_bytes:rate:sum",
+            "interval": "10s",
+            "intervalFactor": 1,
+            "range": true,
+            "refId": "A",
+            "step": 10
+          }
+        ],
+        "title": "Kubernetes Node Network receive Bytes (Average By Instance)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
           "type": "cloudwatch",
           "uid": "c2b204b5-6dc0-4777-9326-ba8b82bc93c1"
         },
@@ -82,23 +551,23 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
                   "value": 80
                 }
               ]
-            }
+            },
+            "unit": "percent"
           },
           "overrides": []
         },
         "gridPos": {
           "h": 10,
           "w": 12,
-          "x": 12,
-          "y": 1
+          "x": 0,
+          "y": 18
         },
         "id": 7,
         "options": {
@@ -187,23 +656,23 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
                   "value": 80
                 }
               ]
-            }
+            },
+            "unit": "Bps"
           },
           "overrides": []
         },
         "gridPos": {
-          "h": 8,
+          "h": 10,
           "w": 12,
-          "x": 0,
-          "y": 11
+          "x": 12,
+          "y": 18
         },
         "id": 8,
         "options": {
@@ -248,158 +717,12 @@
         "type": "timeseries"
       },
       {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "pe-prometheus-datasource"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "dashed"
-              }
-            },
-            "mappings": [],
-            "max": 50,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 10
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 10,
-          "w": 11,
-          "x": 0,
-          "y": 1
-        },
-        "id": 1,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "sum",
-              "mean"
-            ],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": true
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "editorMode": "builder",
-            "expr": "sum(kube_pod_container_status_restarts_total{app_kubernetes_io_name=\"kube-state-metrics\"})",
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "A"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "editorMode": "builder",
-            "expr": "sum(kube_pod_container_status_restarts_total{container=\"metrics-server\"})",
-            "hide": false,
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "B"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "editorMode": "builder",
-            "expr": "sum(kube_pod_container_status_restarts_total{container=\"grafana-agent-logs\"})",
-            "hide": false,
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "C"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "editorMode": "builder",
-            "expr": "sum(kube_pod_container_status_restarts_total{container=\"grafana-agent-traces\"})",
-            "hide": false,
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "D"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "editorMode": "builder",
-            "expr": "sum(kube_pod_container_status_restarts_total{container=\"prometheus-server\"})",
-            "hide": false,
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "E"
-          }
-        ],
-        "title": "core-services pod restarts",
-        "type": "timeseries"
-      },
-      {
         "collapsed": false,
         "gridPos": {
           "h": 1,
           "w": 24,
           "x": 0,
-          "y": 11
+          "y": 28
         },
         "id": 5,
         "panels": [],
@@ -451,8 +774,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -467,7 +789,7 @@
           "h": 8,
           "w": 12,
           "x": 0,
-          "y": 12
+          "y": 29
         },
         "id": 2,
         "options": {
@@ -551,8 +873,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -567,107 +888,7 @@
           "h": 8,
           "w": 12,
           "x": 12,
-          "y": 12
-        },
-        "id": 3,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": true
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "editorMode": "builder",
-            "expr": "sum(kube_pod_container_status_running{container=\"grafana-agent-logs\"})",
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "A"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "hide": false,
-            "refId": "B"
-          }
-        ],
-        "title": "Grafana Log Agent Instances Running",
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "pe-prometheus-datasource"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 20
+          "y": 29
         },
         "id": 4,
         "options": {
@@ -704,236 +925,6 @@
           }
         ],
         "title": "Grafana Traces Agent Instances Running",
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "uid": "pe-prometheus-datasource",
-          "type": "prometheus"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "custom": {
-              "drawStyle": "line",
-              "lineInterpolation": "linear",
-              "barAlignment": 0,
-              "lineWidth": 1,
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "spanNulls": false,
-              "showPoints": "auto",
-              "pointSize": 5,
-              "stacking": {
-                "mode": "none",
-                "group": "A"
-              },
-              "axisPlacement": "auto",
-              "axisLabel": "",
-              "axisColorMode": "text",
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "axisCenteredZero": false,
-              "hideFrom": {
-                "tooltip": false,
-                "viz": false,
-                "legend": false
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "color": {
-              "mode": "palette-classic"
-            },
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 65
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 90
-                }
-              ]
-            },
-            "decimals": 2,
-            "max": 100,
-            "min": 0,
-            "unit": "percent"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 8,
-          "x": 8,
-          "y": 8
-        },
-        "id": 9,
-        "links": [],
-        "maxDataPoints": 100,
-        "options": {
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          },
-          "legend": {
-            "showLegend": true,
-            "displayMode": "list",
-            "placement": "bottom",
-            "calcs": []
-          }
-        },
-        "pluginVersion": "10.0.3-cloud.2.14737d80",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "expr": "sum by(instance) (instance:node_cpu:rate:sum) * 100 / 8\n",
-            "interval": "10s",
-            "intervalFactor": 1,
-            "refId": "A",
-            "step": 10,
-            "editorMode": "builder",
-            "range": true,
-            "hide": false,
-            "instant": false,
-            "exemplar": false
-          }
-        ],
-        "title": "Kubernetes Node CPU Usage by Instance",
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "uid": "pe-prometheus-datasource",
-          "type": "prometheus"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "custom": {
-              "drawStyle": "line",
-              "lineInterpolation": "linear",
-              "barAlignment": 0,
-              "lineWidth": 1,
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "spanNulls": false,
-              "showPoints": "auto",
-              "pointSize": 5,
-              "stacking": {
-                "mode": "none",
-                "group": "A"
-              },
-              "axisPlacement": "auto",
-              "axisLabel": "",
-              "axisColorMode": "text",
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "axisCenteredZero": false,
-              "hideFrom": {
-                "tooltip": false,
-                "viz": false,
-                "legend": false
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "color": {
-              "mode": "palette-classic"
-            },
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 65
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 90
-                }
-              ]
-            },
-            "unit": "Bps"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 8,
-          "x": 16,
-          "y": 8
-        },
-        "id": 10,
-        "links": [],
-        "maxDataPoints": 100,
-        "options": {
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          },
-          "legend": {
-            "showLegend": true,
-            "displayMode": "list",
-            "placement": "bottom",
-            "calcs": []
-          }
-        },
-        "pluginVersion": "10.0.3-cloud.4.aed62623",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "pe-prometheus-datasource"
-            },
-            "expr": "instance:node_network_receive_bytes:rate:sum",
-            "interval": "10s",
-            "intervalFactor": 1,
-            "refId": "A",
-            "step": 10,
-            "editorMode": "builder",
-            "range": true
-          }
-        ],
-        "title": "Kubernetes Node Network receive Bytes (Average By Instance)",
         "type": "timeseries"
       }
     ],
