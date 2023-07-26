@@ -36,7 +36,7 @@
         "title": "Core-Services",
         "type": "row"
       },
-    {
+      {
         "datasource": {
           "type": "cloudwatch",
           "uid": "c2b204b5-6dc0-4777-9326-ba8b82bc93c1"
@@ -704,6 +704,124 @@
           }
         ],
         "title": "Grafana Traces Agent Instances Running",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "uid": "pe-prometheus-datasource",
+          "type": "prometheus"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "linear",
+              "barAlignment": 0,
+              "lineWidth": 1,
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "spanNulls": false,
+              "showPoints": "auto",
+              "pointSize": 5,
+              "stacking": {
+                "mode": "none",
+                "group": "A"
+              },
+              "axisPlacement": "auto",
+              "axisLabel": "",
+              "axisColorMode": "text",
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "axisCenteredZero": false,
+              "hideFrom": {
+                "tooltip": false,
+                "viz": false,
+                "legend": false
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "color": {
+              "mode": "palette-classic"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "rgba(50, 172, 45, 0.97)",
+                  "value": null
+                },
+                {
+                  "color": "rgba(237, 129, 40, 0.89)",
+                  "value": 65
+                },
+                {
+                  "color": "rgba(245, 54, 54, 0.9)",
+                  "value": 90
+                }
+              ]
+            },
+            "decimals": 2,
+            "max": 100,
+            "min": 0,
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 8,
+          "x": 8,
+          "y": 8
+        },
+        "id": 9,
+        "links": [],
+        "maxDataPoints": 100,
+        "options": {
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          },
+          "legend": {
+            "showLegend": true,
+            "displayMode": "list",
+            "placement": "bottom",
+            "calcs": []
+          }
+        },
+        "pluginVersion": "10.0.3-cloud.2.14737d80",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "pe-prometheus-datasource"
+            },
+            "expr": "sum by(instance) (instance:node_cpu:rate:sum) * 100 / 8\n",
+            "interval": "10s",
+            "intervalFactor": 1,
+            "refId": "A",
+            "step": 10,
+            "editorMode": "builder",
+            "range": true,
+            "hide": false,
+            "instant": false,
+            "exemplar": false
+          }
+        ],
+        "title": "Kubernetes Node CPU Usage by Instance",
         "type": "timeseries"
       }
     ],
