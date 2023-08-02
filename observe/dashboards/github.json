@@ -91,7 +91,7 @@
     "fiscalYearStartMonth": 0,
     "gnetId": 14000,
     "graphTooltip": 0,
-    "id": 20,
+    "id": null,
     "links": [],
     "liveNow": false,
     "panels": [
@@ -1739,8 +1739,8 @@
           "options": [
             {
               "selected": false,
-              "text": "master",
-              "value": "master"
+              "text": "main",
+              "value": "main"
             }
           ],
           "query": "master",
