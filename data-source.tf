@@ -1,6 +1,7 @@
 provider "grafana" {
   url  = var.stack_url
   auth = var.stack_management_token
+  cloud_api_key = var.grafana_admin_api_key
 }
 
 resource "grafana_data_source" "prometheus" {
@@ -18,4 +19,10 @@ resource "grafana_data_source" "prometheus" {
   secure_json_data_encoded = jsonencode({
     basicAuthPassword = var.prometheus_password
   })
+}
+
+resource "grafana_cloud_plugin_installation" "test" {
+  stack_slug = var.org_name
+  slug       = "grafana-github-datasource"
+  version    = "1.4.6"
 }

@@ -3,6 +3,7 @@ variable "cluster_name" {}
 variable "team_name" {}
 variable "stack_url" {}
 variable "stack_management_token" {}
+variable "grafana_admin_api_key" {}
 variable "prometheus_endpoint" {}
 variable "prometheus_password" {}
 variable "metrics_server_version" {}

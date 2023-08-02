@@ -4,6 +4,7 @@
     "team_name": "team1",
     "stack_url": "https://team1201stack.grafana.net",
     "stack_management_token": "{{ op://cohorts/team1-201-svc-grafana/team1201stack_management_sa_key }}",
+    "grafana_admin_api_key": "{{ op://cohorts/team1-201-svc-grafana/admin-api-key }}",
     "prometheus_endpoint": "{{ op://cohorts/team1-201-platform-vcluster/prometheus_endpoint }}",
     "prometheus_password": "{{ op://cohorts/team1-201-platform-vcluster/prometheus_password }}",
     "node_exporter_port": "9101",
