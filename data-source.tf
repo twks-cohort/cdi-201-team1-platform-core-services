@@ -26,3 +26,16 @@ resource "grafana_cloud_plugin_installation" "test" {
   slug       = "grafana-github-datasource"
   version    = "1.4.6"
 }
+
+resource "grafana_data_source" "github" {
+  type = "grafana-github-datasource"
+  name = "team1-github"
+
+  json_data_encoded = jsonencode({
+    githubUrl = ""
+  })
+
+  secure_json_data_encoded = jsonencode({
+    accessToken = var.github_pat
+  })
+}

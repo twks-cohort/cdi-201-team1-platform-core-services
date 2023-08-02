@@ -10,3 +10,4 @@ variable "metrics_server_version" {}
 variable "prometheus_version" {}
 variable "grafana_agent_version" {}
 variable "alert_channel" {}
+variable "github_pat" {}
